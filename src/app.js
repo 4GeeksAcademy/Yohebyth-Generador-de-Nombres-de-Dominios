@@ -4,16 +4,15 @@ import "./style.css";
 let pronoun = ["the", "our"];
 let adj = ["great", "big"];
 let noun = ["jogger", "racoon"];
+let printHtml = "";
 
-const randVal = numWords => {
-  return Math.floor(Math.random() * numWords);
-};
-
-let pronounShow = pronoun[randVal(pronoun.length)];
-let adjShow = adj[randVal(adj.length)];
-let nounShow = noun[randVal(noun.length)];
-let print = `${pronounShow}${adjShow}${nounShow}.com`;
-
-console.log(print);
-
-document.querySelector("#excuse").innerHTML = print;
+for (let iAdj of adj) {
+  for (let iPronoun of pronoun) {
+    for (let iNoun of noun) {
+      let print = `${iPronoun}${iAdj}${iNoun}.com`;
+      console.log(print);
+      printHtml += print + " <br>";
+    }
+  }
+}
+document.querySelector("#excuse").innerHTML = printHtml;
